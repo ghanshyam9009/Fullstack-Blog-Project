@@ -54,14 +54,14 @@ app.use("/user", userRoutes);
 app.use(errorHandler);
 //start server
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: true,
-  tlsAllowInvalidCertificates: false,
-  tlsAllowInvalidHostnames: false,
-  tlsInsecure: false
-};
+// const options = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   ssl: true,
+//   tlsAllowInvalidCertificates: false,
+//   tlsAllowInvalidHostnames: false,
+//   tlsInsecure: false
+// };
 
 mongoose
   .connect(process.env.MONGODB_URL)
