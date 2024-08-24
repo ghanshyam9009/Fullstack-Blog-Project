@@ -1,0 +1,32 @@
+<%- include('partials/header', { title, user: user }) %>
+
+<div class="container-fluid mt-4 px-0"> <!-- Use container-fluid to remove padding -->
+  <div class="row mx-0"> <!-- Use mx-0 to remove horizontal margin -->
+    <% if (posts.length > 0) { %> 
+    <% posts.forEach(post => { %>
+    <div class="col-md-3 px-1 mb-3"> <!-- Adjusted column size and padding -->
+      <div class="card">
+        <% if (post.images && post.images.length > 0) { %>
+        <img
+          src="<%= post.images[0].url %>"
+          class="card-img-top"
+          alt="Post Image"
+        />
+        <% } %>
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text">
+            by <strong><%= post.author.username %></strong> on <strong><%= post.createdAt.toDateString() %></strong>
+          </p>
+          <a href="/posts/<%= post._id %>" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <% }) %> 
+    <% } else { %>
+    <p class="text-center w-100">No posts available.</p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
